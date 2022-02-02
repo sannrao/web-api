@@ -1,0 +1,484 @@
+{
+	"test-data": {
+		"testAuthEmailDomains": {
+			"email-KO": "myemail@otherDomain.com",
+			"email-OK": "myemail@myDomain.com",
+			"email-exception": "myemail@otherDomain.com"
+		},
+		"testAuthKVCombo": "prodValue",
+		"testCertificateValidator": {
+			"hostname1": {
+				"certificates": {
+					"cert-KO": {
+						"app-service": "apache",
+						"checksum": "SHA1:1314:efcf1dc55838fec419a9c029ee5906fbb9639f31",
+						"created-by": "root",
+						"expiration-date": "1637071984"
+					},
+					"cert-OK": {
+						"app-service": "none",
+						"checksum": "SHA1:1314:efcf1dc55838fec419a9c029ee5906fbb9639f30",
+						"created-by": "root",
+						"expiration-date": "1767808823"
+					},
+					"cert-WARNING": {
+						"app-service": "apache",
+						"checksum": "SHA1:1314:efcf1dc55838fec419a9c029ee5906fbb9639f31",
+						"created-by": "root"
+					},
+					"cert-exception": {
+						"app-service": "apache",
+						"checksum": "SHA1:1314:efcf1dc55838fec419a9c029ee5906fbb9639f31",
+						"created-by": "root",
+						"expiration-date": "1637071984"
+					}
+				}
+			},
+			"hostname2": {
+				"certificates": {
+					"cert-KO": {
+						"certificate": "MIIFiDCCA3ACCQCzbbyORNGjJDANBgkqhkiG9w0BAQsFADCBhTELMAkGA1UEBhMCRlIxDDAKBgNVBAgMA0lERjEOMAwGA1UEBwwFUGFyaXMxEzARBgNVBAoMClNlcnZpY2VOb3cxDDAKBgNVBAsMA0RFVjERMA8GA1UEAwwIZGV2LWhvc3QxIjAgBgkqhkiG9w0BCQEWE3Rlc3RAc2VydmljZW5vdy5jb20wHhcNMjExMTE2MTQyOTQ0WhcNMjExMTI2MTQyOTQ0WjCBhTELMAkGA1UEBhMCRlIxDDAKBgNVBAgMA0lERjEOMAwGA1UEBwwFUGFyaXMxEzARBgNVBAoMClNlcnZpY2VOb3cxDDAKBgNVBAsMA0RFVjERMA8GA1UEAwwIZGV2LWhvc3QxIjAgBgkqhkiG9w0BCQEWE3Rlc3RAc2VydmljZW5vdy5jb20wggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQCvm1jfJY6UJpxcrU0hzWM3NhS3nF5a4Vkfvw1V9Ijh1IFazJmmcvMGgKHXhL//fjD4TGyxfgqVYA8s3L0sojvK2wCETStBYPb2VAryfgRiMV3HkMfDvHTGCB90cgWUC0DN1jiJ59tchTxNxUSPzf0h32DxI2C1RZZQtNDtDlfZ+ksxpheepfw/ZjRgqqAR9YlbEBw9WhUrAnFAn6Yc4HTlWtLiE906//V31PPmN8jerBaL79iZW0atavu3k9oPI1n3rHFMm/KRJU3vNzgRhjRtKQJbSIYs4HTy7+n4v7mOpBjUGAD+b2O6mzxcq+40eeZUrxfGp08gDHgh/Y0KaXFQDhsJbjxNK6BFC4Xu4m1XmNakw1HeJLzxG6fGIVQgBFhSzem2tOm9jc225isCeCg/7xHnC5yN56Ry4dyoaSz+AOIAla7Kr9zd+CNtKdl+Uf2PFwP2FNUCbMp6sduMf1Ll6oTqr0bD7299+JQU4Ql5yHZrvQd1SOjAsth7oeUnF6QNsR6AaGD+Bxpr2WocKZvQu29JtQWy5yLoohhjZKtdaDa2ku58ujB+EACljG/tViyJ9c5cYc+jOZWSMMCE+iM7VIXJtzFZp8IM+hQ/XOL81avbBGsWKbyADIuafLuROxoMrEnsTmKQWLIya3ca3IyR8591KMVCOHROOrhqWMaf6QIDAQABMA0GCSqGSIb3DQEBCwUAA4ICAQA54UleOJ2ojyHLys6Zh11R0ZvtIzhRvTdcmLBAfY7sYbAG8RKfKr9WgvMtRhP8477yRCP+q5HiYtSfvqIOyN7JVXNoDSIUTTD++dtO8FFdIXamtqSxxlbRJZ7RHdFzIK0qXloYbFDjVWn5GkLr40bG6VxpXehNOHyxSq4Iww+K9yKhEdzdpTTZSuWvB+EpJUDU7KdLhKkV2D+XWTlQd3dA3xQMsdYH/HXVYhMbPT5ij827qosnTYDGEbX3gsU3D46qbQR8G+orazyeFMtOdIZxFtHRb8vxfqY1nInBYiS/A/SMuOFB2r9fCwPUv1GUyvck5NZ/qMcS9nyQtQPBhe78KMK+bdA9PO4ZhMdS3nmdtrwFhM8UTXV7p8ME9EdPHtXhXBAra4WlxV4YcL2Y/Btsy0W+R7LFKm/D+/QyESYTjwQDflQKr/Q8Sv69SOw6tZvjWUbsIZh2h/co8YHa8x2GI87g62CgSrc4gKR9yZXY0fa/L6ARr6jMELvi9K/KrgXl/Itlpae8Xncn52n6uNaDAulzAgiyAx3XuoQH4KeR4AZYvcKANu1vD/EYKOTt5C6N2BEuRKm+Ky/ODnrTLLSUa0v1rau6L9asN+Y5z7oGUxu9rufJIYhyNzFPRkCh7tE7sDuktWTujcxm7wCPbrCDsuj0kPaO3JJuHpFEMUweDQ==",
+						"created-by": "root"
+					},
+					"cert-OK": {
+						"certificate": "MIID5jCCAs6gAwIBAgIINw/tsJKf4k4wDQYJKoZIhvcNAQELBQAwgakxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRIwEAYDVQQHDAlTdW5ueXZhbGUxETAPBgNVBAoMCEZvcnRpbmV0MR4wHAYDVQQLDBVDZXJ0aWZpY2F0ZSBBdXRob3JpdHkxGTAXBgNVBAMMEEZHMUs1RDNJMTQ4MDA4OTYxIzAhBgkqhkiG9w0BCQEWFHN1cHBvcnRAZm9ydGluZXQuY29tMB4XDTE5MTIwMzA4Mjc0OFoXDTI5MTIwMzA4Mjc0OFowgakxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRIwEAYDVQQHDAlTdW5ueXZhbGUxETAPBgNVBAoMCEZvcnRpbmV0MR4wHAYDVQQLDBVDZXJ0aWZpY2F0ZSBBdXRob3JpdHkxGTAXBgNVBAMMEEZHMUs1RDNJMTQ4MDA4OTYxIzAhBgkqhkiG9w0BCQEWFHN1cHBvcnRAZm9ydGluZXQuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA7fiAMpDBee9zgghL5eEaiRAkFzIQoceBZiPTIPJFgltGLln3tM0luQuyi6qQo8HIJUz004vppc6d5lwPrV9LLKJGMhCwiO6qiLtrsS2bqDiP/pSV/H3NwaPwgjhCja7I2L0/W5HkCFxKNIw0PXh1vomVxJftOtW7M0UN8qgU1h8G/bP5ARKQx92/Kh0JY8r7nT6onBoKGoGrrCgBP010YC+wL9WNMA6unniLqacoUrzKYJ/xQqX6AmEakP9AwLA2zG1F1Gj1oDz2vxs9TUf54czSQYay5D67CFQ+odSuadMtyA3X1C8m0dDcfn1y2b8dtN/84Hi9wYx8+GNCyOn9cQIDAQABoxAwDjAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQA3e3juTacmuL9hKzo6aIJ7g2nF/+pjcm652RCyf+Xz5TmVYbQxhV0PB9EwZk0K/I3G1DdFTiMb0kiBE+sfrucZBkR4hccWd3Cbe9yEjosZrrndf70NAJ5pMgXz44o4jRTEgNll/2p+KfRHhvEfBiPwBV6wTdik3/twVN6zrQc3Lfq7MVy55bb/xblWr/wGqGpdpYiKKS4JgFfZaQBd/dHW65uQfdhg314IZpOxrRpILTPR2LqF4ni5/vAYZ2zjnCozuyFGhNy92gsNZiR5bS72StEGAU84caXC5fVa52deatG2SJwkja/aU9Tl5AoUfXHt5qwYbwJ3Cd+uO9gRI+eA",
+						"created-by": "root"
+					},
+					"cert-exception": {
+						"checksum": "SHA1:1314:efcf1dc55838fec419a9c029ee5906fbb9639f31"
+					}
+				}
+			}
+		},
+		"testConsistentNodesComp": {
+			"hostname1": {
+				"certificates": {
+					"cert-exception": {
+						"app-service": "apache",
+						"checksum": "SHA1:1314:efcf1dc55838fec419a9c029ee5906fbb9639f31",
+						"created-by": "root",
+						"expiration-date": "1637071984"
+					},
+					"cert1": {
+						"app-service": "none",
+						"checksum": "SHA1:1314:efcf1dc55838fec419a9c029ee5906fbb9639f30",
+						"created-by": "root",
+						"expiration-date": "1767808823"
+					}
+				},
+				"hostname": "hostname1",
+				"scanDate": "2021-11-04T16:34:05",
+				"system": {
+					"os": {
+						"DISTRIB_DESCRIPTION": "Red Hat Enterprise Linux release 8.1 (Ootpa)",
+						"uname": "4.18.0-147.el8.x86_64"
+					},
+					"packages": {
+						"device-mapper-event": "1.02.163.5.el8",
+						"dnf-plugins-core": "4.0.8.3.el8",
+						"gdisk": "1.0.3.6.el8",
+						"glib2": "2.56.4.7.el8",
+						"lib-KO": "5.50.1.el8",
+						"lib-exception": "2.20.1.el8",
+						"liberation-fonts-common": "2.00.3.4.el8",
+						"mesa-dri-drivers": "19.1.4.2.el8",
+						"time": "1.9.3.el8",
+						"tpm2-tools": "3.1.4.5.el8",
+						"util-linux": "2.32.1.17.el8"
+					}
+				}
+			},
+			"hostname2": {
+				"certificates": {
+					"cert1": {
+						"app-service": "none",
+						"checksum": "SHA1:1314:efcf1dc55838fec419a9c029ee5906fbb9639f40",
+						"created-by": "root",
+						"expiration-date": "1767808823"
+					},
+					"cert2": {
+						"app-service": "nginx",
+						"checksum": "SHA1:1314:efcf1dc55838fec419a9c029ee5906fbb9639f41",
+						"created-by": "root",
+						"expiration-date": "1687071984"
+					}
+				},
+				"hostname": "hostname2",
+				"scanDate": "2021-11-04T16:34:15",
+				"system": {
+					"os": {
+						"DISTRIB_DESCRIPTION": "Red Hat Enterprise Linux release 8.1 (Ootpa)",
+						"uname": "4.18.0-147.el8.x86_64"
+					},
+					"packages": {
+						"device-mapper-event": "1.02.163.5.el8",
+						"dnf-plugins-core": "4.0.8.3.el8",
+						"gdisk": "1.0.3.6.el8",
+						"glib2": "2.56.4.7.el8",
+						"lib-KO": "5.60.1.el8",
+						"lib-exception": "2.30.1.el8",
+						"liberation-fonts-common": "2.00.3.4.el8",
+						"mesa-dri-drivers": "19.1.4.2.el8",
+						"time": "1.9.3.el8",
+						"tpm2-tools": "3.1.4.5.el8",
+						"util-linux": "2.32.1.17.el8"
+					}
+				}
+			}
+		},
+		"testDiffValuesNodesComp": {
+			"25.96.225.10": {
+				"interfaces": {
+					"disabled": {
+						"1.1": {
+							"mac-address": "00:0a:49:b8:c9:02",
+							"media-active": "none",
+							"media-fixed": "auto",
+							"media-max": "1000T-FD",
+							"mtu": "9198",
+							"port-fwd-mode": "l3",
+							"prefer-port": "sfp",
+							"serial": "none"
+						},
+						"1.2": {
+							"mac-address": "00:0a:49:b8:c9:03",
+							"media-active": "none",
+							"media-fixed": "auto",
+							"media-max": "1000T-FD",
+							"mtu": "9198",
+							"port-fwd-mode": "l3",
+							"prefer-port": "sfp",
+							"serial": "none"
+						},
+						"2.3": {
+							"mac-address": "00:0a:49:b8:c9:08",
+							"media-active": "none",
+							"media-fixed": "auto",
+							"media-max": "10000T-FD",
+							"mtu": "9198",
+							"port-fwd-mode": "l3",
+							"prefer-port": "sfp",
+							"serial": "none"
+						},
+						"2.4": {
+							"mac-address": "00:0a:49:b8:c9:09",
+							"media-active": "none",
+							"media-fixed": "auto",
+							"media-max": "10000T-FD",
+							"mtu": "9198",
+							"port-fwd-mode": "l3",
+							"prefer-port": "sfp",
+							"serial": "none"
+						},
+						"2.5": {
+							"mac-address": "00:0a:49:b8:c9:0a",
+							"media-active": "none",
+							"media-fixed": "auto",
+							"media-max": "10000T-FD",
+							"mtu": "9198",
+							"port-fwd-mode": "l3",
+							"prefer-port": "sfp",
+							"serial": "none"
+						},
+						"2.6": {
+							"mac-address": "00:0a:49:b8:c9:0b",
+							"media-active": "none",
+							"media-fixed": "auto",
+							"media-max": "10000T-FD",
+							"mtu": "9198",
+							"port-fwd-mode": "l3",
+							"prefer-port": "sfp",
+							"serial": "none"
+						},
+						"2.7": {
+							"mac-address": "00:0a:49:b8:c9:0c",
+							"media-active": "none",
+							"media-fixed": "auto",
+							"media-max": "10000T-FD",
+							"mtu": "9198",
+							"port-fwd-mode": "l3",
+							"prefer-port": "sfp",
+							"serial": "none"
+						},
+						"2.8": {
+							"mac-address": "00:0a:49:b8:c9:0d",
+							"media-active": "none",
+							"media-fixed": "auto",
+							"media-max": "10000T-FD",
+							"mtu": "9198",
+							"port-fwd-mode": "l3",
+							"prefer-port": "sfp",
+							"serial": "none"
+						}
+					},
+					"enabled": {
+						"1.3": {
+							"mac-address": "00:0a:49:b8:c9:04",
+							"media-active": "1000T-FD",
+							"media-fixed": "auto",
+							"media-max": "1000T-FD",
+							"mtu": "9198",
+							"port-fwd-mode": "l3",
+							"prefer-port": "sfp",
+							"serial": "none"
+						},
+						"1.4": {
+							"mac-address": "00:0a:49:b8:c9:05",
+							"media-active": "1000T-FD",
+							"media-fixed": "auto",
+							"media-max": "1000T-FD",
+							"mtu": "9198",
+							"port-fwd-mode": "l3",
+							"prefer-port": "sfp",
+							"serial": "none"
+						},
+						"2.1": {
+							"mac-address": "00:0a:49:b8:c9:06",
+							"media-active": "10000SR-FD",
+							"media-fixed": "auto",
+							"media-max": "10000T-FD",
+							"mtu": "9198",
+							"port-fwd-mode": "l3",
+							"prefer-port": "sfp",
+							"serial": "ATR18ZL"
+						},
+						"2.2": {
+							"mac-address": "00:0a:49:b8:c9:07",
+							"media-active": "10000SR-FD",
+							"media-fixed": "auto",
+							"media-max": "10000T-FD",
+							"mtu": "9198",
+							"port-fwd-mode": "l3",
+							"prefer-port": "sfp",
+							"serial": "AT5000K"
+						},
+						"mgmt": {
+							"mac-address": "00:0a:49:b8:c9:01",
+							"media-active": "1000T-FD",
+							"media-fixed": "auto",
+							"media-max": "1000T-FD",
+							"mtu": "1500",
+							"port-fwd-mode": "l3",
+							"prefer-port": "sfp",
+							"serial": "none"
+						}
+					}
+				},
+				"users": {
+					"admin": {
+						"description": "\"Admin User\"",
+						"partition": "Common",
+						"partition-access": {
+							"roles": "all-partitions {role admin}"
+						},
+						"password": "$6$eT2AdnC1$bwdFDBH3DE7syYwnCs1i28CTB1xPdObw8Gx3Fs6uYMfJjO02aYPB9ZrCQ8HFpUFEgj9S6UsXKW1PQv4PwPfUi0",
+						"shell-access": "none"
+					},
+					"f5hubblelcdadmin": {
+						"description": "f5hubblelcdadmin",
+						"partition-access": {
+							"roles": "all-partitions {role admin}"
+						},
+						"password": "fI1wOlFKJLdgim4ULLBzQ7egLJ99Rpqu",
+						"shell-access": "none"
+					},
+					"root": {
+						"description": "root",
+						"password": "$6$x9LO0zCV$DWyh097uwPJrD9ew5DnDu3f1wlbvpsW6iYZo26odsD5EqDxH/b0.Xp7mPV/gDRknzY5fRYIX.R7B2dLShFrRq0",
+						"shell-access": "bash"
+					}
+				}
+			},
+			"25.96.225.11": {
+				"interfaces": {
+					"disabled": {
+						"1.1": {
+							"mac-address": "00:0a:49:b8:3e:42",
+							"media-active": "none",
+							"media-fixed": "auto",
+							"media-max": "1000T-FD",
+							"mtu": "9198",
+							"port-fwd-mode": "l3",
+							"prefer-port": "sfp",
+							"serial": "none"
+						},
+						"1.2": {
+							"mac-address": "00:0a:49:b8:3e:43",
+							"media-active": "none",
+							"media-fixed": "auto",
+							"media-max": "1000T-FD",
+							"mtu": "9198",
+							"port-fwd-mode": "l3",
+							"prefer-port": "sfp",
+							"serial": "none"
+						},
+						"2.3": {
+							"mac-address": "00:0a:49:b8:3e:48",
+							"media-active": "none",
+							"media-fixed": "auto",
+							"media-max": "10000T-FD",
+							"mtu": "9198",
+							"port-fwd-mode": "l3",
+							"prefer-port": "sfp",
+							"serial": "none"
+						},
+						"2.4": {
+							"mac-address": "00:0a:49:b8:3e:49",
+							"media-active": "none",
+							"media-fixed": "auto",
+							"media-max": "10000T-FD",
+							"mtu": "9198",
+							"port-fwd-mode": "l3",
+							"prefer-port": "sfp",
+							"serial": "none"
+						},
+						"2.5": {
+							"mac-address": "00:0a:49:b8:3e:4a",
+							"media-active": "none",
+							"media-fixed": "auto",
+							"media-max": "10000T-FD",
+							"mtu": "9198",
+							"port-fwd-mode": "l3",
+							"prefer-port": "sfp",
+							"serial": "none"
+						},
+						"2.6": {
+							"mac-address": "00:0a:49:b8:3e:4b",
+							"media-active": "none",
+							"media-fixed": "auto",
+							"media-max": "10000T-FD",
+							"mtu": "9198",
+							"port-fwd-mode": "l3",
+							"prefer-port": "sfp",
+							"serial": "none"
+						},
+						"2.7": {
+							"mac-address": "00:0a:49:b8:3e:4c",
+							"media-active": "none",
+							"media-fixed": "auto",
+							"media-max": "10000T-FD",
+							"mtu": "9198",
+							"port-fwd-mode": "l3",
+							"prefer-port": "sfp",
+							"serial": "none"
+						},
+						"2.8": {
+							"mac-address": "00:0a:49:b8:3e:4d",
+							"media-active": "none",
+							"media-fixed": "auto",
+							"media-max": "10000T-FD",
+							"mtu": "9198",
+							"port-fwd-mode": "l3",
+							"prefer-port": "sfp",
+							"serial": "none"
+						}
+					},
+					"enabled": {
+						"1.3": {
+							"mac-address": "00:0a:49:b8:3e:44",
+							"media-active": "1000T-FD",
+							"media-fixed": "auto",
+							"media-max": "1000T-FD",
+							"mtu": "9198",
+							"port-fwd-mode": "l3",
+							"prefer-port": "sfp",
+							"serial": "none"
+						},
+						"1.4": {
+							"mac-address": "00:0a:49:b8:3e:45",
+							"media-active": "1000T-FD",
+							"media-fixed": "auto",
+							"media-max": "1000T-FD",
+							"mtu": "9198",
+							"port-fwd-mode": "l3",
+							"prefer-port": "sfp",
+							"serial": "none"
+						},
+						"2.1": {
+							"mac-address": "00:0a:49:b8:3e:46",
+							"media-active": "10000SR-FD",
+							"media-fixed": "auto",
+							"media-max": "10000T-FD",
+							"mtu": "9198",
+							"port-fwd-mode": "l3",
+							"prefer-port": "sfp",
+							"serial": "AT5000P"
+						},
+						"2.2": {
+							"mac-address": "00:0a:49:b8:3e:47",
+							"media-active": "10000SR-FD",
+							"media-fixed": "auto",
+							"media-max": "10000T-FD",
+							"mtu": "9198",
+							"port-fwd-mode": "l3",
+							"prefer-port": "sfp",
+							"serial": "ATR19QM"
+						},
+						"mgmt": {
+							"mac-address": "00:0a:49:b8:3e:41",
+							"media-active": "1000T-FD",
+							"media-fixed": "auto",
+							"media-max": "1000T-FD",
+							"mtu": "1500",
+							"port-fwd-mode": "l3",
+							"prefer-port": "sfp",
+							"serial": "none"
+						}
+					}
+				},
+				"users": {
+					"admin": {
+						"description": "\"Admin User\"",
+						"partition": "Common",
+						"partition-access": {
+							"roles": "all-partitions {role admin}"
+						},
+						"password": "$6$KsLlq/.0$6sm.zT2g/EMZbvy4hxLHkMGianwwFWlaB8tcnUIvrNhVXqks3UBNAzsRtX0Dtt62tLuxxEVAz6CB.kal6OU/d.",
+						"shell-access": "none"
+					},
+					"f5hubblelcdadmin": {
+						"description": "f5hubblelcdadmin",
+						"partition-access": {
+							"roles": "all-partitions {role admin}"
+						},
+						"password": "d7sQX9mEhCDyXPP8MFrGKW7IxRepvKpO",
+						"shell-access": "none"
+					},
+					"root": {
+						"description": "root",
+						"password": "$6$Dzd.cpfQ$T5TdEK4KVU8.hjpfWy4C9Q3HuODYQ1SSQkLhfpTBWzV6rvoLDR/nZBo.Za06bekCZR7DYTYlic3Mw4ONqJGvW1",
+						"shell-access": "bash"
+					}
+				}
+			}
+		},
+		"testGenericValidator": {
+			"fqdn-OK": "devops.francecentral.cloudapp.azure.com",
+			"trace-KO-ifcasesensitive": "this is an error!",
+			"trace_level-KO": "DEBUG",
+			"trace_level-OK": "INFO",
+			"webport-KO": "9090",
+			"webport-OK": "8080"
+		},
+		"testNoEmptyValues": {
+			"merchantId2": ""
+		},
+		"testNoXXXX": {
+			"directoryServicesURL": "ldap://allyourbase.arebelongto.us",
+			"directoryServicesURL2": "ldaps://allyourbase.arebelongto.us",
+			"fileShareURL": "ftp://youare.unsafe.com",
+			"fileShareURL2": "ftps://youare.unsafe.com",
+			"postToDarkSite": "http://ithinkyoumistyped.https.com",
+			"postToTwitter": "https://www.twitter.com"
+		},
+		"testTags": {
+			"tags": {
+				"buildNumber": "1.32.4",
+				"deployedTo": "NA"
+			}
+		},
+		"testUnresolvedVar": "@@notAThing@@",
+		"testWSwithWords": "Text with whitespace",
+		"testWhiteSpace": " "
+	}
+}
