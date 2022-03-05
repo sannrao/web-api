@@ -10,6 +10,7 @@
 * configFilePath = "k8s/helm/values.yml"
 * exporterName ='returnAllData-nowPreview' 
 * exporterArgs = ''
+* changeControlEnabled = false
 */
 
 pipeline {    
@@ -69,6 +70,8 @@ pipeline {
                               isSnapshotCreated=false
                               isSnapshotValidateionRequired=false
                               isSnapshotPublisingRequired=false
+                              
+                              changeControlEnabled = true
 
 
                               /**
@@ -100,7 +103,10 @@ pipeline {
                                     }
                                     if(params.exporterArgs){
                                           exporterArgs = params.exporterArgs
-                                    } 
+                                    }
+                                    if(params.changeControlEnabled){
+                                          changeControlEnabled = params.changeControlEnabled
+                                    }
 
                               }
 
@@ -156,9 +162,11 @@ pipeline {
 
                               if(changeSetId != null){
 
-                                    echo "Change set registration for ${changeSetId}"
-                                    changeSetRegResult = snDevOpsConfigRegisterPipeline(changesetNumber:"${changeSetId}")
-                                    echo "change set registration set result ${changeSetRegResult}"
+                                    if(changeControlEnabled){
+                                          echo "Change set registration for ${changeSetId}"
+                                          changeSetRegResult = snDevOpsConfigRegisterPipeline(changesetNumber:"${changeSetId}")
+                                          echo "change set registration set result ${changeSetRegResult}"
+                                    }
                                     
                               } else {
                                     
@@ -322,7 +330,9 @@ pipeline {
                   steps{
                         script{
                               echo "Devops Change trigger change request"
-                              snDevOpsChange()
+                              if(changeControlEnabled){
+                                    snDevOpsChange()
+                              }
 
                               echo "Exporting for App: ${appName} Deployable; ${deployableName} Exporter name ${exporterName} "
                               echo "Configfile exporter file name ${fullFileName}"
