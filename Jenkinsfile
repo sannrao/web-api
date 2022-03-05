@@ -104,7 +104,7 @@ pipeline {
                                     if(params.exporterArgs){
                                           exporterArgs = params.exporterArgs
                                     }
-                                    if(params.changeControlEnabled){
+                                    if(params.changeControlEnabled != null){
                                           changeControlEnabled = params.changeControlEnabled
                                     }
 
