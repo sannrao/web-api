@@ -119,14 +119,12 @@ pipeline {
                   steps{
                         checkout scm    
                         echo "scm checkout successful"
-                        mvn clean build      
                   }
                   
             }     
             stage('Test') {           
                         steps{         
                         sh 'echo "Tests passed"'        
-                        mvn clean test
                   }
                   
             }     
