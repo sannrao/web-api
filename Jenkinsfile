@@ -117,14 +117,16 @@ pipeline {
             // Build Step
             stage('Build image') {      
                   steps{
-                  checkout scm    
-                  echo "scm checkout successful"
+                        checkout scm    
+                        echo "scm checkout successful"
+                        mvn clean build      
                   }
                   
             }     
             stage('Test') {           
-                  steps{         
-                  sh 'echo "Tests passed"'        
+                        steps{         
+                        sh 'echo "Tests passed"'        
+                        mvn clean test
                   }
                   
             }     
