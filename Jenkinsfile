@@ -127,9 +127,15 @@ pipeline {
             stage('Validate'){
                 parallel{
 		            stage('Unit Test') {
-                        steps{
-                        sh "./mvnw test"
-                    }
+                              steps{
+                                    sh "./mvnw test"
+                              }
+                              post {
+                                    always {
+                                          junit "target/surefire-reports/*.xml"
+                                    }
+                              }                              
+                        }
 		            stage('Upload Configuration Files'){
 		                  steps{
 		                        sh "echo validating configuration file ${configFilePath}"
@@ -152,24 +158,23 @@ pipeline {
 		                  steps{
 			                  echo "Triggering Get snapshots for applicationName:${appName},deployableName:${deployableName},changeSetId:${changeSetId}"
 			                  script{
-
-		                        changeSetResults = snDevOpsConfigGetSnapshots(applicationName:"${appName}",deployableName:"${deployableName}",changesetNumber:"${changeSetId}")
-		                        if (!changeSetResults){
-		                              isSnapshotCreated=false
-		                              echo "no snapshot were created"
-		                        }
-		                        else{
-		                              isSnapshotCreated = true;
-		                              echo "ChangeSet Result : ${changeSetResults}"
-		                              def changeSetResultsObject = readJSON text: changeSetResults
-		                              changeSetResultsObject.each {
-		                                    snapshotName = it.name
-		                                    snapshotObject = it
-		                              }
-		                              snapshotValidationStatus = snapshotObject.validation
-		                              snapshotPublishedStatus = snapshotObject.published
-		                        }
-	                        }
+                                          changeSetResults = snDevOpsConfigGetSnapshots(applicationName:"${appName}",deployableName:"${deployableName}",changesetNumber:"${changeSetId}")
+                                          if (!changeSetResults){
+                                                isSnapshotCreated=false
+                                                echo "no snapshot were created"
+                                          }
+                                          else{
+                                                isSnapshotCreated = true;
+                                                echo "ChangeSet Result : ${changeSetResults}"
+                                                def changeSetResultsObject = readJSON text: changeSetResults
+                                                changeSetResultsObject.each {
+                                                      snapshotName = it.name
+                                                      snapshotObject = it
+                                                }
+                                                snapshotValidationStatus = snapshotObject.validation
+                                                snapshotPublishedStatus = snapshotObject.published
+                                          }
+	                              }
 		                  }
 		            }
 
@@ -247,12 +252,11 @@ pipeline {
 		                        }
 		                  }
 		            }
-			      post{
-			          always{
-			                 echo ">>>>>Displaying Test results"
-			                 junit '**/*.xml'
-			          }
-			      }
+                        post {
+                              always {
+                                    junit "*.xml"
+                              }
+                        }                              
                 }
             }
 
