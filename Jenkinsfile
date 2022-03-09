@@ -125,7 +125,7 @@ pipeline {
                   
             }
             stage('Validate'){
-                parallel{
+                  parallel{
 		            stage('Unit Test') {
                               steps{
                                     sh "./mvnw test"
@@ -251,13 +251,13 @@ pipeline {
 		                              }
 		                        }
 		                  }
+                              post {
+                                    always {
+                                          junit "*.xml"
+                                    }
+                              }                              
 		            }
-                        post {
-                              always {
-                                    junit "*.xml"
-                              }
-                        }                              
-                }
+                  }
             }
 
             // Generate an Artifact
