@@ -1,0 +1,168 @@
+/**
+* Parameters can be sent via build parameters, instead of changing the code.
+* Use the same variable name to set the build parameters.
+* List of parameters that can be passed
+* appName='devops-demo-web-app'
+* deployableName = 'PROD-US'
+* componentName="web-app-v1.1"
+* collectionName="release-1.0"
+* exportFormat ='yaml'
+* configFilePath = "k8s/helm/values.yml"
+* exporterName ='returnAllData-nowPreview' 
+* exporterArgs = ''
+* changeControlEnabled = false
+*/
+
+pipeline {    
+
+      
+      agent any
+      /**
+      * Jenkins pipline related variables
+      */
+      
+
+
+      
+      stages{
+
+            stage('Initialize'){
+                  steps{
+                        script{
+                        
+                              dockerImageName = "santoshnrao/web-app"
+
+
+                              /**
+                              * DevOps Config App related information
+                              */
+                              appName='devops-demo-web-app'
+                              deployableName = 'PROD-US'
+                              componentName="web-app-v1.1"
+                              collectionName="release-1.0"
+                              
+                              /**
+                              * Configuration File information to be uploade
+                              */ 
+                              
+                              exportFormat ='yaml'
+                              configFilePath = "k8s/helm/values.yml"
+
+                              /**
+                              * Devops Config exporter related information
+                              */
+                              
+                              exporterName ='returnAllData-nowPreview' 
+                              exporterArgs = ''
+                              
+                              /**
+                              * Jenkins variables declared to be used in pipeline
+                              */ 
+
+                              fileNamePrefix ='exported_file_'
+                              fullFileName="${fileNamePrefix}-${deployableName}-${currentBuild.number}.${exportFormat}"
+                              changeSetId=""
+                              snapshotName=""
+                              
+                              dockerImageTag=""
+                              snapName=''
+                              snapshotObject=""
+                              isSnapshotCreated=false
+                              isSnapshotValidateionRequired=false
+                              isSnapshotPublisingRequired=false
+                              
+                              changeControlEnabled = true
+
+
+                              /**
+                              * Checking for parameters
+                              */
+
+                              if(params){
+                                    echo "setting values from build parameter"
+                                    if(params.appName){
+                                          appName = params.appName;
+                                    }
+                                    if(params.deployableName){
+                                          deployableName = params.deployableName
+                                    }
+                                    if(params.componentName){
+                                          componentName = params.componentName
+                                    }
+                                    if(params.collectionName){
+                                          collectionName = params.collectionName
+                                    }
+                                    if(params.exportFormat){
+                                          exportFormat = params.exportFormat
+                                    }
+                                    if(params.configFilePath){
+                                          configFilePath = params.configFilePath
+                                    }
+                                    if(params.exporterName){
+                                          exporterName =params.exporterName
+                                    }
+                                    if(params.exporterArgs){
+                                          exporterArgs = params.exporterArgs
+                                    }
+                                    if(params.changeControlEnabled != null){
+                                          changeControlEnabled = params.changeControlEnabled
+                                    }
+
+                              }
+
+                              checkout scm
+
+                        }
+                  }
+            }
+            
+            // Build Step
+            stage('Build image') {      
+                  steps{
+                        sh "./mvnw clean install -Dmaven.test.skip=true"
+                        echo "Build Complete"
+                  }
+                  
+            }
+            stage('Validate'){
+                  parallel{
+		                  stage('Unit Test') {
+                              steps{
+                                    sh "./mvnw test"
+                              }
+                              post {
+                                    always {
+                                          junit "target/surefire-reports/*.xml"
+                                    }
+                              }                              
+                        }
+                  }
+            }
+
+            // Generate an Artifact
+            stage('Push docker Image') { 
+                  steps{
+	                  sh 'ls -a'
+                      script{
+			            dockerImageTag = env.BUILD_NUMBER
+                        dockerImageNameTag = "${dockerImageName}" + ":" + "${dockerImageTag}"
+                        snDevopsArtifactPayload = '{"artifacts": [{"name": "' + dockerImageName + '",  "version": "' + "${dockerImageTag}" + '", "semanticVersion": "' + "0.1.${dockerImageTag}"+ '","repositoryName": "' + dockerImageName+ '"}, ],"stageName":"Build image","branchName": "main"}'  ;
+                        echo " docker Image artifacat ${dockerImageNameTag} "
+                        echo "snDevopsArtifactPayload ${snDevopsArtifactPayload} "
+                        snDevOpsArtifact(artifactsPayload:snDevopsArtifactPayload)
+                      }
+                }
+            }
+            stage("Deploy to PROD-US"){
+                  steps{
+                        script{
+                              echo "********************** BEGIN Deployment ****************"
+                              echo "Applying docker image ${dockerImageNameTag}"
+                              echo "********************** END Deployment ****************"
+                        }
+                  }
+            }
+      }
+
+
+}
