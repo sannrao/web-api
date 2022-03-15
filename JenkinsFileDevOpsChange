@@ -121,6 +121,7 @@ pipeline {
                   steps{
                         sh "./mvnw clean install -Dmaven.test.skip=true"
                         echo "Build Complete"
+			archiveArtifacts artifacts: 'targes/**/*.jar', fingerprint: true
                   }
                   
             }
@@ -144,7 +145,7 @@ pipeline {
                   steps{
 	                  sh 'ls -a'
                       script{
-			            dockerImageTag = env.BUILD_NUMBER
+			dockerImageTag = env.BUILD_NUMBER
                         dockerImageNameTag = "${dockerImageName}" + ":" + "${dockerImageTag}"
                         snDevopsArtifactPayload = '{"artifacts": [{"name": "' + dockerImageName + '",  "version": "' + "${dockerImageTag}" + '", "semanticVersion": "' + "0.1.${dockerImageTag}"+ '","repositoryName": "' + dockerImageName+ '"}, ],"stageName":"Build image","branchName": "main"}'  ;
                         echo " docker Image artifacat ${dockerImageNameTag} "
@@ -155,7 +156,7 @@ pipeline {
             }
             stage("Deploy to PROD-US"){
                   steps{
-			      snDevOpsChange();		  	
+			snDevOpsChange();		  	
                         script{
 
                               echo "********************** BEGIN Deployment ****************"
