@@ -156,9 +156,9 @@ pipeline {
             }
             stage("Deploy to PROD-US"){
                   steps{
-			snDevOpsChange();		  	
-                        script{
 
+                        script{
+ 	    		snDevOpsChange();		  	
                               echo "********************** BEGIN Deployment ****************"
                               echo "Applying docker image ${dockerImageNameTag}"
                               echo "********************** END Deployment ****************"
