@@ -16,7 +16,6 @@ public class ApplicationService {
 	public List<Applications> getApplications(){
 		List<Applications> applications = new ArrayList<>();
 		applications.add( Applications.builder().name("app1").fUUID(UUID.randomUUID()).build());
-		applications.add( Applications.builder().name("app1").fUUID(UUID.randomUUID()).build());
 		return applications;
 	}
 
