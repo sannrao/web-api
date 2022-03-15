@@ -143,9 +143,9 @@ pipeline {
             // Generate an Artifact
             stage('Push docker Image') { 
                   steps{
-	                  sh 'ls -a'
                       script{
 			dockerImageTag = env.BUILD_NUMBER
+			dockerImageName = snrao-web-api
                         dockerImageNameTag = "${dockerImageName}" + ":" + "${dockerImageTag}"
                         snDevopsArtifactPayload = '{"artifacts": [{"name": "' + dockerImageName + '",  "version": "' + "${dockerImageTag}" + '", "semanticVersion": "' + "0.1.${dockerImageTag}"+ '","repositoryName": "' + dockerImageName+ '"}, ],"stageName":"Build image","branchName": "main"}'  ;
                         echo " docker Image artifacat ${dockerImageNameTag} "
