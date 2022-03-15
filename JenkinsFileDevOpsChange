@@ -154,9 +154,12 @@ pipeline {
                       }
                 }
             }
+	    stage("SnDevOps Change Control"){
+			snDevOpsChange();	    
+	    }
             stage("Deploy to PROD-US"){
                   steps{
-			snDevOpsChange();		  	
+
                         script{
 
                               echo "********************** BEGIN Deployment ****************"
