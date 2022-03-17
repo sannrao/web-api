@@ -139,6 +139,13 @@ pipeline {
                         }
                   }
             }
+	    stage('Sonar Scan'){
+	      	steps{
+			withSonarQubeEnv('My SonarQube Server') {
+			      sh './mvnw clean package sonar:sonar'
+			    }
+		}
+	    }
 	    
             // Generate an Artifact
             stage('Push docker Image') { 
