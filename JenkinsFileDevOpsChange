@@ -140,12 +140,14 @@ pipeline {
                   }
             }
 	    stage('Sonar Scan'){
+	    
 	    	steps{
-		   script{
-			withSonarQubeEnv('My SonarQube Server') {
-			      sh './mvnw clean package sonar:sonar'
-			}
-		   }
+		
+		   	script{
+				withSonarQubeEnv('My SonarQube Server') {
+			      		sh './mvnw clean package sonar:sonar'
+				}
+		   	}
 		}
 	    }
 	    
