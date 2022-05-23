@@ -157,7 +157,7 @@ pipeline {
                               if(changeSetId != null){
 
                                     echo "Change set registration for ${changeSetId}"
-                                    changeSetRegResult = snDevOpsConfigRegisterPipeline(changesetNumber:"${changeSetId}")
+                                    changeSetRegResult = snDevOpsConfigRegisterPipeline(applicationName : "${appName}" , changesetNumber:"${changeSetId}" )
                                     echo "change set registration set result ${changeSetRegResult}"
                                     
                               } else {
@@ -322,7 +322,7 @@ pipeline {
                   steps{
                         script{
                               echo "Devops Change trigger change request"
-                              snDevOpsChange()
+                              snDevOpsChange(applicationName:"${appName}",snapshotName: snapshotName:${snapshotName}")
 
                               echo "Exporting for App: ${appName} Deployable; ${deployableName} Exporter name ${exporterName} "
                               echo "Configfile exporter file name ${fullFileName}"
