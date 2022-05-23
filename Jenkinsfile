@@ -119,6 +119,7 @@ pipeline {
             stage('Test') {           
                   steps{         
                   sh 'echo "Tests passed"'        
+                  sh './mvnw clean verify'
                   }
                   
             }     
