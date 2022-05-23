@@ -178,6 +178,7 @@ pipeline {
                   script{
                         
                         changeSetResults = snDevOpsConfigGetSnapshots(applicationName:"${appName}",deployableName:"${deployableName}",changesetNumber:"${changeSetId}" , markFailed : false , showResults : true )
+                        echo "ChangeSet Result : ${changeSetResults}"
                         if (!changeSetResults){
                               isSnapshotCreated=false
                               echo "no snapshot were created"
@@ -185,8 +186,6 @@ pipeline {
                         else{
                               isSnapshotCreated = true;
                         
-                              echo "ChangeSet Result : ${changeSetResults}"
-
 
                               def changeSetResultsObject = readJSON text: changeSetResults
 
