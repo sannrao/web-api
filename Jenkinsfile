@@ -322,7 +322,7 @@ pipeline {
                   steps{
                         script{
                               echo "Devops Change trigger change request"
-                              snDevOpsChange(applicationName:"${appName}",snapshotName: snapshotName:${snapshotName}")
+                              snDevOpsChange(applicationName:"${appName}",snapshotName:"${snapshotName}")
 
                               echo "Exporting for App: ${appName} Deployable; ${deployableName} Exporter name ${exporterName} "
                               echo "Configfile exporter file name ${fullFileName}"
