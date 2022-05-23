@@ -158,7 +158,7 @@ pipeline {
 
                                     echo "Change set registration for ${changeSetId}"
                                     //changeSetRegResult = snDevOpsConfigRegisterPipeline(appName : "${appName}" , changesetNumber:"${changeSetId}" )
-                                    echo "change set registration set result ${changeSetRegResult}"
+                                    // echo "change set registration set result ${changeSetRegResult}"
                                     
                               } else {
                                     
