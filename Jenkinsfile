@@ -317,17 +317,17 @@ pipeline {
                   }
             }
 
-            stage('Export Snapshots from Service Now') {
+            stage('Change Control') {
                   steps{
                         script{
                               echo "Devops Change trigger change request"
                               snDevOpsChange(applicationName:"${appName}",snapshotName:"${snapshotName}")
 
-                              echo "Exporting for App: ${appName} Deployable; ${deployableName} Exporter name ${exporterName} "
-                              echo "Configfile exporter file name ${fullFileName}"
-                              sh  'echo "<<<<<<<<<export file is starting >>>>>>>>"'
-                              exportResponse = snDevOpsConfigExport(applicationName: "${appName}", snapshotName: "${snapshotObject.name}", deployableName: "${deployableName}",exporterFormat: "${exportFormat}", fileName:"${fullFileName}", exporterName: "${exporterName}", exporterArgs: "${exporterArgs}")
-                              echo " RESPONSE FROM EXPORT : ${exportResponse}"
+//                               echo "Exporting for App: ${appName} Deployable; ${deployableName} Exporter name ${exporterName} "
+//                               echo "Configfile exporter file name ${fullFileName}"
+//                               sh  'echo "<<<<<<<<<export file is starting >>>>>>>>"'
+//                               exportResponse = snDevOpsConfigExport(applicationName: "${appName}", snapshotName: "${snapshotObject.name}", deployableName: "${deployableName}",exporterFormat: "${exportFormat}", fileName:"${fullFileName}", exporterName: "${exporterName}", exporterArgs: "${exporterArgs}")
+//                               echo " RESPONSE FROM EXPORT : ${exportResponse}"
 
                         }
                   }
@@ -338,18 +338,15 @@ pipeline {
             stage("Deploy to PROD-US"){
                   steps{
                         script{
-                              echo "Reading config from file name ${fullFileName}"
-                              echo " ++++++++++++ BEGIN OF File Content ***************"
-                              sh "cat ${fullFileName}"
-                              echo " ++++++++++++ END OF File content ***************"
-                              
-                              echo "deploy finished successfully."
-
+//                               echo "Reading config from file name ${fullFileName}"
+//                               echo " ++++++++++++ BEGIN OF File Content ***************"
+//                               sh "cat ${fullFileName}"
+//                               echo " ++++++++++++ END OF File content ***************"
                               
                               echo "********************** BEGIN Deployment ****************"
                               echo "Applying docker image ${dockerImageNameTag}"
-
-                        
+                              echo "deploy finished successfully."
+                       
                               echo "********************** END Deployment ****************"
                         }
                   }
