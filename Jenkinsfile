@@ -119,7 +119,7 @@ pipeline {
             stage('Test') {           
                   steps{         
                   sh 'echo "Tests passed"'        
-                  sh './mvnw clean verify'
+                  // sh './mvnw clean verify'
                   }
                   
             }     
@@ -354,12 +354,5 @@ pipeline {
                   
             }
       }
-      post{
-          always{
-                 echo ">>>>>Displaying Test results"
-                 junit '**/*.xml'
-          }
-      }
-      
 
 }
