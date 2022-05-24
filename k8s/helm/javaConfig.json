@@ -787,7 +787,7 @@
 		"glide.ais.ha.write_mutex_expiry_time_minutes": "4320",
 		"glide.ais.ha.write_mutex_spin_max": "240",
 		"glide.ais.ha.write_mutex_spin_wait_time": "5",
-		"glide.ais.ingestion.batcher_queue_memory_size": "20",
+		"glide.ais.ingestion.batcher_queue_memory_size": "100",
 		"glide.ais.ingestion.batcher_queue_size": "1000",
 		"glide.ais.ingestion.dictionary_term_batcher_queue_size": "1000",
 		"glide.ais.ingestion.failure_retry_timeout": "600",
