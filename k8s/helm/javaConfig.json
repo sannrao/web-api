@@ -1,6 +1,6 @@
 {
 	"featureToggles": {
-		"invoicePrinting": "enabled",
+		"invoicePrinting": "disabled",
 		"myPreferredPaymentMethods": "enabled",
 		"payByVoucher": "diabled",
 		"payOnDelivery": "disabled",
