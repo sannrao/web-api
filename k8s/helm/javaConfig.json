@@ -3,7 +3,7 @@
 		"invoicePrinting": "enabled",
 		"myPreferredPaymentMethods": "enabled",
 		"payByVoucher": "diabled",
-		"payOnDelivery": "disabled",
+		"payOnDelivery": "enabled",
 		"paymentRefund": "enabled"
 	},
 	"jvmStartupProperties": {
