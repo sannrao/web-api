@@ -2,7 +2,7 @@
 	"featureToggles": {
 		"invoicePrinting": "enabled",
 		"myPreferredPaymentMethods": "enabled",
-		"payByVoucher": "diabled",
+		"payByVoucher": "enabled",
 		"payOnDelivery": "enabled",
 		"paymentRefund": "enabled"
 	},
