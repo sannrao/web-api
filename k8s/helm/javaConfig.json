@@ -27,7 +27,10 @@
 		"merchantId": "204534",
 		"ogone": "enabled",
 		"paymentMethods": "1,3,5,6",
-		"paypal": "enabled"
+		"paypal": "enabled",
+		"googlePay" : "enabled",
+		"google.payment.gateway.url": "dev.pay.google.com"
+
 	},
 	"systemSettings": {
 		"ais_enablemlframework": "FALSE",
