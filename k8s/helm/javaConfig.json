@@ -33,8 +33,7 @@
 
 	},
 	"systemSettings": {
-		"ais_enablemlframework": "FALSE",
-		"angular.jsonp.inclusion_list.enabled": "TRUE",
+		"ais_enablemlframework": "TRUE",
 		"angular.jsonp.inclusion_list.urls": "self",
 		"app.service.persist.list.state": "TRUE",
 		"auxdb.db.name": "auxdb-prod",
