@@ -31,8 +31,7 @@
 	},
 	"systemSettings": {
 		"ais_enablemlframework": "TRUE",
-		"angular.jsonp.inclusion_list.urls": "self",
-		"app.service.persist.list.state": "TRUE",
+		"app.service.persist.list.state": "FALSE",
 		"auxdb.db.name": "auxdb-prod",
 		"auxdb.db.rdbms": "mysql",
 		"auxdb.db.url": "jdbc:mysql://10.20.21.22/",
