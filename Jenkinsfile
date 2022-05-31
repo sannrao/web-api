@@ -153,7 +153,10 @@ pipeline {
                         sh "ls **.*"
                         sh "echo ${WORKSPACE}/**.*"
                         script{
-                              changeSetId = snDevOpsConfigUpload(applicationName:"${appName}",target:'component',namePath:"${componentName}", configFile:"${configFilePath}", autoCommit:'true',autoValidate:'true',dataFormat:"${exportFormat}" , convertPath : 'false' )
+                              var workspaceConfigFilePath = "${WORKSPACE}/${configFilePath}"
+                              sh "cat ${configFilePath} "
+                              sh "cat ${workspaceConfigFilePath}"
+                              changeSetId = snDevOpsConfigUpload(applicationName:"${appName}",target:'component',namePath:"${componentName}", configFile:"${workspaceConfigFilePath}", autoCommit:'true',autoValidate:'true',dataFormat:"${exportFormat}" , convertPath : 'false' )
 
                               echo "validation result $changeSetId"
 
