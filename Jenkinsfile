@@ -150,6 +150,8 @@ pipeline {
                   
                   steps{
                         sh "echo validating configuration file ${configFilePath}"
+                        sh "ls **.*"
+                        sh "echo ${WORKSPACE}/**.*"
                         script{
                               changeSetId = snDevOpsConfigUpload(applicationName:"${appName}",target:'component',namePath:"${componentName}", configFile:"${configFilePath}", autoCommit:'true',autoValidate:'true',dataFormat:"${exportFormat}" , convertPath : 'false' )
 
