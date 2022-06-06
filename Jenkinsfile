@@ -160,7 +160,7 @@ pipeline {
                               sh "cat ${workspaceConfigFilePath}"
                               echo "** Sleep for 30 seconds **"
                               sleep(30);
-                              changeSetId = snDevOpsConfigUpload(applicationName:"${appName}",target:'component',namePath:"${componentName}", configFile:"${workspaceConfigFilePath}", autoCommit:'true',autoValidate:'true',dataFormat:"${exportFormat}" , convertPath : 'false' )
+                              changeSetId = snDevOpsConfigUpload(applicationName:"${appName}",target:'component',namePath:"${componentName}", configFile:"${configFilePath}", autoCommit:'true',autoValidate:'true',dataFormat:"${exportFormat}" , convertPath : 'false' )
 
                               echo "validation result $changeSetId"
 
