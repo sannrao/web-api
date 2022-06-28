@@ -8,6 +8,8 @@
 	"settings": {
 		"allowed.billing.countries": "74,76,88,136,139,176,197",
 		"applePay": "disabled",
+		"googlePay" : "enabled",
+		"goolePayGatewayUrl" : "dev.pay.google.com",
 		"creditcards.cacf.type.ids": "43,44,45,46",
 		"creditcards.oney.type.ids": "33,34,35,36",
 		"dbConnectionString": "@@paymentService/database/dbUserName@@:@@paymentService/database/dbPassword@@ @@paymentService/database/dbServer@@:@@paymentService/database/dbPort@@ @@paymentService/database/dbName@@",
