@@ -7,7 +7,7 @@
 	},
 	"settings": {
 		"allowed.billing.countries": "74,76,88,136,139,176,197",
-		"applePay": "disabled",
+		"applePay": "enabled",
 		"googlePay" : "enabled",
 		"goolePayGatewayUrl" : "dev.pay.google.com",
 		"creditcards.cacf.type.ids": "43,44,45,46",
